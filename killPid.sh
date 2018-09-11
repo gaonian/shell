@@ -9,7 +9,7 @@ killGoogle () {
 	# pgrep -lo Google
 	# pgrep -ln Google
 
-	# 取出pid
+	# 查找进程
 	googlePid=`pgrep -lo Google`
 	echo $googlePid
 
@@ -32,7 +32,25 @@ killGoogle () {
 	sudo kill -9 $googlePid
 }
 
-killGoogle
+killQQMusic () {
+
+	# 查找进程
+	qqmusicPid=`pgrep -lo QQMusic`
+	echo $qqmusicPid
+
+	for temp in $qqmusicPid
+	do
+		qqmusicPid=$temp
+	  	echo $temp
+	  	break
+	done
+
+	# kill
+	sudo kill -9 $qqmusicPid
+}
+
+# killGoogle
+killQQMusic
 
 
 
