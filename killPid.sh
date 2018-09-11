@@ -13,13 +13,20 @@ killGoogle () {
 	googlePid=`pgrep -lo Google`
 	echo $googlePid
 
+	for temp in `pgrep -l Google`
+	do
+		googlePid=$temp
+	  	echo $temp
+	  	break
+	done
+
 	# 取出pid 占几个字符
-	n=`pgrep -l Google|wc -l` 
-	echo " -- $n"
+	# n=`pgrep -l Google|wc -l` 
+	# echo " -- $n"
 
 	# 截取pid
-	googlePid=${googlePid:0:$n}
-	echo $googlePid
+	# googlePid=${googlePid:0:$n}
+	# echo $googlePid
 
 	# kill
 	sudo kill -9 $googlePid
